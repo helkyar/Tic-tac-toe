@@ -1,6 +1,7 @@
 let grid = document.querySelector('.grid');
 let turn = document.querySelector('.player');
-const refresh = document.querySelector('button');
+let gamemode = document.querySelector('.gamemode')
+const refresh = document.querySelector('.refresh');
 let player = true; //player one = true
 const winArray = [
   [0, 4, 8],
@@ -14,8 +15,25 @@ const winArray = [
 ];
 
 grid.addEventListener('click', makeMove);
+gamemode.addEventListener('click', changeGamemode);
 refresh.addEventListener('click', () => location.reload());
 
+/**
+ * Changes game mode between PvP and PvC
+ */
+function changeGamemode(){
+  if (gamemode.innerText == "PvP"){
+    gamemode.innerText = "PvC";
+  }else{
+    gamemode.innerText = "PvP";
+  }
+}
+
+/**
+ * Paints the cell, changes player and checks for win
+ * @param {e} event fired (click)
+ * 
+ */
 function makeMove(e) {
   let play;
   let cls = e.target.classList;
@@ -32,6 +50,9 @@ function makeMove(e) {
   }
 }
 
+/**
+ * Checks every possible win combination for each player
+ */
 function checkWin() {
   let cells = document.querySelectorAll('.cell');
   for (let i = 0; i < winArray.length; i++) {
