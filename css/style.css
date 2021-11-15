@@ -1,11 +1,49 @@
+/* =================== GENERAL ================================== */
 body {
   padding-top: 2rem;
+  background-color: grey;
+  color: greenyellow;
+
+}
+h1 {
+  margin-bottom: 8rem;
 }
 h1,
 h3 {
   text-align: center;
+  text-shadow: 1px 1px black;
 }
-
+button {
+  width: 4rem;  
+  border: 2px solid greenyellow;
+  background-color: black;
+  border-radius: 10px;
+  width: fit-content;
+  padding: 0.5rem 2rem;
+  margin-bottom: 4rem;
+  
+  color: greenyellow;
+  font-weight: bold;
+}
+body, .main-page, .board-page {
+  transition: transform 0.2s ease-out;
+  width: 30rem;
+  position: absolute;
+  top: 2rem;
+  left: calc(50% - 15rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+/* ================== MAIN PAGE ===================================== */
+.main-page button {
+  font-size: larger;
+}
+/* =================== BOARD ======================================= */
+.go-back{
+  margin-bottom: -2rem;
+}
 .grid {
   padding-top: 0.08rem;
   margin: 3rem auto 1rem;
@@ -23,17 +61,18 @@ h3 {
   text-align: center;
   font-weight: bolder;
   font-size: 3.5rem;
+  text-shadow: 1.5px 1.5px greenyellow;
 }
 .cell:active {
   transform: scale(0.95);
 }
-button {
-  width: 4rem;
-  margin-left: calc(50% - 2rem);
-}
+
 .one {
-  color: red;
+  color: rgb(49, 5, 5);
 }
 .two {
-  color: blue;
+  color: rgb(19, 2, 46);
+}
+.hidden{
+  transform: scale(0);
 }

@@ -1,38 +1,47 @@
 let grid = document.querySelector('.grid');
 let turn = document.querySelector('.player');
-let gamemode = document.querySelector('.gamemode')
 const refresh = document.querySelector('.refresh');
 let player = true; //player one = true
-const winArray = [
-  [0, 4, 8],
-  [6, 4, 2],
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
-];
-
+ 
+document.addEventListener('click', changePage)
 grid.addEventListener('click', makeMove);
-gamemode.addEventListener('click', changeGamemode);
-refresh.addEventListener('click', () => location.reload());
+refresh.addEventListener('click', refreshBoard);
 
 /**
- * Changes game mode between PvP and PvC
+ * Changes the diaplay of the page adding or removing classes
+ * @param {*} event fired if specifics buttons are clicked
  */
-function changeGamemode(){
-  if (gamemode.innerText == "PvP"){
-    gamemode.innerText = "PvC";
-  }else{
-    gamemode.innerText = "PvP";
+function changePage(e){
+  console.log(e);
+  if(e.target.tagName == 'BUTTON'){
+    let main = document.querySelector('.main-page');
+    let board = document.querySelector('.board-page');
+    if(e.target.classList.contains('go-back')){
+      main.classList.remove('hidden');
+      board.classList.add('hidden');
+    } else if (e.target.classList.contains('play')){
+      main.classList.add('hidden');
+      board.classList.remove('hidden');
+    }
   }
 }
 
 /**
+ * Cleans the board removing classes
+ */
+function refreshBoard(){
+  let cells = document.querySelectorAll('.cell');
+  [...cells].map((cell)=>{
+    cell.classList.remove('one');
+    cell.classList.remove('two');
+    cell.classList.remove('full');
+    cell.innerText = '';
+  })
+}
+
+/**
  * Paints the cell, changes player and checks for win
- * @param {e} event fired (click)
- * 
+ * @param {*} event fired if a cell is clicked
  */
 function makeMove(e) {
   let play;
