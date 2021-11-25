@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/tic.png">
     <title>Tictactoe</title>
     <link rel="stylesheet" href="css/style.css" />
   </head> 
@@ -14,7 +15,12 @@
       <button class="pvp play">Two Players</button>
     </div>
     <div class="board-page hidden">
-      <h3 class="player">Turn: Player one</h3>
+      <form action="">
+        <input type="text" name="playerone" id="playerone" value="one">
+        <div><strong class="scoreone">0</strong> || <strong class="scoretwo">0</strong></div>
+        <input type="text" name="playertwo" id="playertwo" value="two">
+      </form>
+      <h3 class="player"></h3>
       <button class="go-back">Go Back</button>
       <main class="grid">
         <a class="cell"></a>

@@ -1,7 +1,7 @@
 /* =================== GENERAL ================================== */
 body {
   padding-top: 2rem;
-  background-color: grey;
+  background-color: black;
   color: greenyellow;
 
 }
@@ -40,6 +40,22 @@ body, .main-page, .board-page {
 .main-page button {
   font-size: larger;
 }
+
+/* =================== SCORE ======================================= */
+form{
+  display:flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+input{
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+  background-color: rgb(83, 72, 72);
+}
+strong {
+  margin: 0 0.5rem
+}
 /* =================== BOARD ======================================= */
 .go-back{
   margin-bottom: -2rem;
@@ -47,7 +63,7 @@ body, .main-page, .board-page {
 .grid {
   padding-top: 0.08rem;
   margin: 3rem auto 1rem;
-  border: 0.5px solid #000;
+  border: 0.5px solid rgb(66, 73, 40);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -55,7 +71,7 @@ body, .main-page, .board-page {
   height: calc(3 * 4.2rem);
 }
 .cell {
-  border: 0.5px solid #000;
+  border: 0.5px solid rgb(66, 73, 40);
   width: 4rem;
   height: 4rem;
   text-align: center;
@@ -72,6 +88,14 @@ body, .main-page, .board-page {
 }
 .two {
   color: rgb(19, 2, 46);
+}
+#playerone.highlight{
+  background-color: rgb(49, 5, 5);
+  color: greenyellow;
+}
+#playertwo.highlight{
+  background-color: rgb(19, 2, 46);
+  color: greenyellow;
 }
 .hidden{
   transform: scale(0);
